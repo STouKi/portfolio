@@ -1,0 +1,18 @@
+
+// Colors //
+$hue: 280;
+$primary: hsl($hue, 100%, 25%);
+
+$gradient: linear-gradient(to bottom, hsla($hue, 100%, 5%, 0.9), hsla($hue, 100%, 95%, 0.9));
+
+$shade-1: hsl($hue, 100%, 15%);
+$shade-2: hsl($hue, 100%, 5%);
+
+$gray: hsl($hue, 0%, 50%);
+
+$tint-1: hsl($hue, 100%, 35%);
+$tint-2: hsl($hue, 100%, 95%);
+
+:export {
+  primaryColor: $primary;
+}
