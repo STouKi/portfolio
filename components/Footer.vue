@@ -1,6 +1,6 @@
 <template>
   <footer class="p-4 md:p-10">
-    <p class="text-right"> Copyright © 2021 - Tous droit réservés </p>
+    <p class="text-right text-2xl sm:text-4xl"> Copyright © 2021 - Tous droit réservés </p>
   </footer>
 </template>
 
@@ -13,7 +13,6 @@
     p
     {
       font-family : 'Amatic', 'Inter', 'Arial';
-      font-size: 2em;
     }
   }
 </style>

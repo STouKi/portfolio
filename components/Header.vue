@@ -1,28 +1,32 @@
 <template>
-  <header class="px-4 md:px-10 py-5 w-full z-10" :class="{ fixed : headerFixed }" :style="{ background : headerBackground }">
+  <header class="px-4 md:px-10 py-5 w-full z-20" :class="{ fixed : headerFixed }" :style="{ background : headerBackground }">
     <div class="flex justify-between items-center">
-      <div id="logo-container" class="flex">
-        <NuxtLink to="/">
-          <img src="~/assets/images/icons/qs.svg" alt="Logo de Quentin Sastourné" class="h-10 lg:h-20" />
-        </NuxtLink>
-
-        <img id='logo-text' class="h-10 lg:h-20 text-white" src="~/assets/images/logos/quentin-sastourne/logo-text.svg" alt="Dev web - Graphisme" />
+      <div id="logo-container">
+        <a class="anchor-links cursor-pointer flex" href="#home" @click.prevent="activeLink('home', $event)">
+          <img data-src="~/assets/images/icons/qs.svg" alt="Logo de Quentin Sastourné" class="h-10 lg:h-20 lazyload" />
+					<img data-src="~/assets/images/logos/quentin-sastourne/logo-text.svg" alt="Dev web - Graphisme" id='logo-text' class="h-10 lg:h-20 text-white lazyload" />
+        </a>
       </div>
 
       <nav class="p-10 lg:p-0 lg:bg-transparent">
         <ul class="text-3xl">
-          <li class="mr-0 lg:mr-4"><a class="anchor-links cursor-pointer font-bold" @click="activeLink('home', $event)">Accueil</a></li>
-          <li class="mr-0 lg:mr-4"><a class="anchor-links cursor-pointer" @click="activeLink('portfolio', $event, $event)">Réalisations</a></li>
-          <li class="mr-0 lg:mr-4"><a class="anchor-links cursor-pointer" @click="activeLink('experiences', $event)">Expériences</a></li>
-					<li class="mr-0 lg:mr-4"><a class="anchor-links cursor-pointer" @click="activeLink('qualifications', $event)">Formations</a></li>
-          <li class="mr-0 lg:mr-4"><a class="anchor-links cursor-pointer" @click="activeLink('skills', $event)">Compétences</a></li>
-          <li class="mr-0 lg:mr-4"><a class="anchor-links cursor-pointer" @click="activeLink('testimonials', $event)">Recommandations</a></li>
-          <li class="mr-0 lg:mr-4"><a class="anchor-links cursor-pointer whitespace-nowrap" @click="activeLink('about', $event)">A propos</a></li>
-          <li><a class="anchor-links cursor-pointer" @click="activeLink('contact', $event)">Contact</a></li>
+          <li class="mr-0 lg:mr-4"><a class="anchor-links cursor-pointer" href="#home" @click.prevent="activeLink('home', $event)">Accueil</a></li>
+          <li class="mr-0 lg:mr-4"><a class="anchor-links cursor-pointer" href="#portfolio" @click.prevent="activeLink('portfolio', $event, $event)">Portfolio</a></li>
+					<li class="mr-0 lg:mr-4"><a class="anchor-links cursor-pointer" href="#services" @click.prevent="activeLink('services', $event, $event)">Services</a></li>
+					<li class="mr-0 lg:mr-4"><a class="anchor-links cursor-pointer" href="#skills" @click.prevent="activeLink('skills', $event)">Compétences</a></li>
+					<li class="mr-0 lg:mr-4"><a class="anchor-links cursor-pointer" href="#qualifications" @click.prevent="activeLink('qualifications', $event)">Qualifications</a></li>
+          <li class="mr-0 lg:mr-4"><a class="anchor-links cursor-pointer" href="#testimonials" @click.prevent="activeLink('testimonials', $event)">Témoignages</a></li>
+          <li class="mr-0 lg:mr-4"><a class="anchor-links cursor-pointer whitespace-nowrap" href="#about" @click.prevent="activeLink('about', $event)">A propos</a></li>
+          <li class="mr-0 lg:mr-4"><a class="anchor-links cursor-pointer" href="#contact" @click.prevent="activeLink('contact', $event)">Contact</a></li>
+					<li>
+						<a class="anchor-links cursor-pointer">
+							<div id="btn-dark-mode" :class="[darkMode ? 'sun' : 'moon']" @click="toggleDarkMode" />
+						</a>
+					</li>
         </ul>
       </nav>
 
-      <div id="webapp-cover" class="block lg:hidden">
+      <div class="block lg:hidden">
         <div id="menu-button">
           <input type="checkbox" id="menu-checkbox" @click="toggleSideMenu">
           <label for="menu-checkbox" id="menu-label">
@@ -35,14 +39,18 @@
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   data () {
     return {
       activeBurger: false,
-      headerBackground: null
+      headerBackground: null,
+			darkMode: false
     }
   },
   computed: {
+		...mapGetters({ theme: "getTheme" }),
     headerFixed() {
       return (this.$nuxt.$route.path === '/') ? true : false
     }
@@ -58,12 +66,6 @@ export default {
       if (this.$nuxt.$route.path === '/') {
         const links = document.getElementsByClassName('anchor-links')
         let clickedLink = e.target
-
-        links.forEach(link => {
-          link.classList.remove("font-bold")
-        });
-
-        clickedLink.classList.add('font-bold')
 
         let headerHeight = document.getElementsByTagName('header')[0].offsetHeight
         let anchor = document.getElementById(anchorId)
@@ -86,14 +88,41 @@ export default {
     handleScroll () {
       if (this.$nuxt.$route.path === '/') {
         const header = document.getElementsByTagName("header")[0]
+				const sections = document.querySelectorAll('section[id]')
+				const scrollY = window.scrollY;
 
-        if (window.scrollY == 0) {
+        if (scrollY == 0) {
           header.style.background = 'transparent'
         } else {
           header.style.background = 'hsl(75, 100%, 5%)'
         }
+
+				sections.forEach(section => {
+					let headerHeight = document.getElementsByTagName('header')[0].offsetHeight
+					const sectionHeight = section.offsetHeight;
+					const sectionTop = section.offsetTop - headerHeight - 1;
+					const sectionId = section.getAttribute('id');
+					const sectionLink = document.querySelector('nav a[href*=' + sectionId + ']');
+
+					if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
+						sectionLink.classList.add('active-link')
+					} else {
+						sectionLink.classList.remove('active-link')
+					}
+				})
       }
-    }
+    },
+		toggleDarkMode () {
+			this.$store.dispatch("toggleTheme");
+
+			if (this.darkMode === false) {
+				this.darkMode = true;
+				localStorage.theme = 'dark';
+			} else {
+				this.darkMode = false;
+				localStorage.theme = 'light';
+			}
+		}
   },
   beforeMount () {
     window.addEventListener('scroll', this.handleScroll);
@@ -103,59 +132,74 @@ export default {
   },
   beforeDestroy () {
     window.removeEventListener('scroll', this.handleScroll);
-  }
+  },
+	watch: {
+    theme(newTheme, oldTheme) {
+      newTheme === "light"
+        ? document.querySelector("html").classList.remove("dark")
+        : document.querySelector("html").classList.add("dark");
+    },
+  },
 }
 </script>
 
 <style lang="scss">
+	#btn-dark-mode {
+		background-color: white;
+		width: 40px;
+		height: 40px;
+	}
+
+	.moon {
+		mask: url('@/assets/images/icons/moon.svg') no-repeat center / contain;
+		-webkit-mask: url('@/assets/images/icons/moon.svg') no-repeat center / contain;
+	}
+
+	.sun {
+		mask: url('@/assets/images/icons/sun.svg') no-repeat center / contain;
+		-webkit-mask: url('@/assets/images/icons/sun.svg') no-repeat center / contain;
+	}
+
 	nav {
 		background-color: $shade-2;
 	}
 
-  header
-  {
+  header {
     transition-duration: 0.3s;
   }
 
-  #logo-container:hover #logo-text
-  {
+  #logo-container:hover #logo-text {
     margin-left : 10px;
     opacity     : 1;
   }
 
-  #logo-text
-  {
+  #logo-text {
     margin-left         : -50px;
     opacity             : 0;
     transition-duration : 1s;
   }
 
-  #active-link
-  {
+  .active-link {
     font-weight: bold;
   }
 
-  #menu-button
-  {
+  #menu-button {
     width: 39px;
     overflow: hidden;
   }
 
-  #menu-checkbox
-  {
+  #menu-checkbox {
     display: none;
   }
 
-  #menu-label
-  {
+  #menu-label {
     position: relative;
     display: block;
     height: 29px;
     cursor: pointer;
   }
 
-  #menu-label:before, #menu-label:after, #menu-text-bar
-  {
+  #menu-label:before, #menu-label:after, #menu-text-bar {
     position: absolute;
     left: 0;
     width: 100%;
@@ -163,29 +207,24 @@ export default {
     background-color: #fff;
   }
 
-  #menu-label:before, #menu-label:after
-  {
+  #menu-label:before, #menu-label:after {
     content: '';
     transition: 0.4s cubic-bezier(0.68, -0.55, 0.27, 1.55) left;
   }
 
-  #menu-label:before
-  {
+  #menu-label:before {
     top: 0;
   }
 
-  #menu-label:after
-  {
+  #menu-label:after {
     top: 12px;
   }
 
-  #menu-text-bar
-  {
+  #menu-text-bar {
     top: 24px;
   }
 
-  #menu-text-bar:before
-  {
+  #menu-text-bar:before {
     content: 'MENU';
     position: absolute;
     top: 5px;
@@ -198,30 +237,25 @@ export default {
     text-align: center;
   }
 
-  #menu-checkbox:checked + #menu-label:before
-  {
+  #menu-checkbox:checked + #menu-label:before {
     left: -39px;
   }
 
-  #menu-checkbox:checked + #menu-label:after
-  {
+  #menu-checkbox:checked + #menu-label:after {
     left: 39px;
   }
 
-  #menu-checkbox:checked + #menu-label #menu-text-bar:before
-  {
+  #menu-checkbox:checked + #menu-label #menu-text-bar:before {
     animation: moveUpThenDown 0.8s ease 0.2s forwards, shakeWhileMovingUp 0.8s ease 0.2s forwards, shakeWhileMovingDown 0.2s ease 0.8s forwards;
   }
 
-  @keyframes moveUpThenDown
-  {
+  @keyframes moveUpThenDown {
     0%{ top:0; }
     50%{ top:-27px;}
     100%{ top:-14px; }
   }
 
-  @keyframes shakeWhileMovingUp
-  {
+  @keyframes shakeWhileMovingUp {
     0%{ transform: rotateZ(0); }
     25%{ transform:rotateZ(-10deg); }
     50%{ transform:rotateZ(0deg); }
@@ -229,30 +263,25 @@ export default {
     100%{ transform:rotateZ(0); }
   }
 
-  @keyframes shakeWhileMovingDown
-  {
+  @keyframes shakeWhileMovingDown {
     0%{ transform:rotateZ(0); }
     80%{ transform:rotateZ(3deg); }
     90%{ transform:rotateZ(-3deg); }
     100%{ transform:rotateZ(0); }
   }
 
-  nav
-  {
-    ul
-    {
+  nav {
+    ul {
       display: flex;
     }
 
-    a
-    {
-      font-family: 'Amatic', 'Inter', 'Arial';
+		li:not(:last-child) a {
+			font-family: 'Amatic', 'Inter', 'Arial';
       text-decoration: none;
       color: white;
       white-space: nowrap;
 
-      &:after
-      {
+      &:after {
         content            : '';
         display            : block;
         background         : transparent;
@@ -261,32 +290,28 @@ export default {
         transition-duration: 0.3s;
       }
 
-      &:hover
-      {
+      &:hover {
         color          : white;
         text-decoration: none;
 
-        &:after
-        {
+        &:after {
           width     : 100%;
           background: white;
         }
       }
-    }
+		}
   }
 
   @media (max-width: 1023px) {
-    nav
-    {
+    nav {
       position: fixed;
-      top: 80px;
+      top: 88px;
       left: -100%;
       bottom: 0;
       transition-duration: 0.5s;
       z-index: 2;
 
-      ul
-      {
+      ul {
         height: 100%;
         flex-direction: column;
         justify-content: space-evenly;

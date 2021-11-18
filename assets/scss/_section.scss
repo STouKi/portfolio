@@ -1,0 +1,11 @@
+.title-section {
+	@apply text-center mb-3 md:mb-10;
+
+	h2 {
+		@apply amatic text-5xl mb-3 dark:text-tint-2;
+	}
+
+	h3 {
+		@apply text-xl text-gray-500;
+	}
+}

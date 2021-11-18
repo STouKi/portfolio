@@ -1,0 +1,16 @@
+input, textarea {
+	@apply rounded-md #{!important};
+	@apply block w-full shadow-sm focus:ring focus:ring-opacity-50;
+}
+
+.input-message {
+	@apply text-red-500 text-xs;
+}
+
+label {
+	@apply block mb-5;
+
+	span {
+		@apply text-gray-700 dark:text-tint-2;
+	}
+}

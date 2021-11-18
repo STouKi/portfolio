@@ -1,0 +1,26 @@
+button:focus {
+	outline: none;
+}
+
+.btn-main {
+	background-color   : $primary;
+	color              : $tint-2;
+	border             : 2px solid $primary;
+	transition-duration: 0.3s;
+
+	&:hover {
+		color     : $primary;
+		background: $tint-2;
+
+		.btn-main-icon {
+			background-color: $primary
+		}
+	}
+}
+
+.btn-main-icon {
+	background-color: white;
+	width: 30px;
+	height: 30px;
+	transition-duration: 0.1s;
+}

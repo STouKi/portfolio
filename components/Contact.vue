@@ -1,28 +1,28 @@
 <template>
-  <section id='contact' class="anchor p-4 md:p-10 grid grid-cols-1 md:grid-cols-2">
+  <section id='contact' class="anchor p-4 md:p-10 grid grid-cols-1 md:grid-cols-2 dark:bg-shade-2">
     <div class="mb-10 md:mb-0">
-      <h2 class="amatic text-5xl mb-4 md:mb-10"> Contactez-moi </h2>
+      <h2 class="amatic text-5xl mb-4 md:mb-10 dark:text-tint-2"> Contactez-moi </h2>
 
       <div class="flex flex-col">
         <div class="flex items-center mb-3">
           <a href="tel:+33661534048" class="text-3xl mr-5">
 						<div id="phone-svg" class="contact-icon" />
 					</a>
-          <p>06 61 53 40 48</p>
+          <p class="dark:text-tint-2">06 61 53 40 48</p>
         </div>
 
         <div class="flex items-center mb-3">
           <a href="mailto:contact@quentin-sastourne.com" class="text-3xl mr-5">
 						<div id="envelope-svg" class="contact-icon" />
 					</a>
-          <p>contact@quentin-sastourne.com</p>
+          <p class="dark:text-tint-2">contact@quentin-sastourne.com</p>
         </div>
 
         <div class="flex items-center">
-          <a href="#" class="mr-5">
+          <a href="https://www.linkedin.com/in/touki/" class="mr-5">
             <div id="linkedin-svg" class="contact-icon" />
           </a>
-          <p>@touki</p>
+          <p class="dark:text-tint-2">@touki</p>
         </div>
       </div>
     </div>
@@ -71,9 +71,9 @@
       :nameInError="'Le message'"
       v-model.trim="$v.form.message.$model" />
 
-      <button id="form-btn" type="submit" class="p-5 rounded text-xl flex justify-between">
+      <button id="form-btn" type="submit" class="btn-main p-5 rounded text-xl flex justify-between">
 				Envoyer
-				<div id="paper-plane-svg" />
+				<div id="paper-plane-svg" class="btn-main-icon" />
 			</button>
 
       <CloseableAlert
@@ -210,22 +210,6 @@ export default {
 </script>
 
 <style lang="scss">
-  #form-btn {
-		background-color   : $primary;
-		color              : $tint-2;
-		border             : 2px solid $primary;
-		transition-duration: 0.3s;
-
-    &:hover {
-			color     : $primary;
-			background: $tint-2;
-
-			#paper-plane-svg {
-				background-color: $primary
-			}
-    }
-  }
-
 	.contact-icon {
 		background-color: $primary;
 		width: 30px;
@@ -253,11 +237,7 @@ export default {
 	}
 
 	#paper-plane-svg {
-		background-color: white;
 		mask: url('@/assets/images/icons/paper-plane.svg') no-repeat center / contain;
 		-webkit-mask: url('@/assets/images/icons/paper-plane.svg') no-repeat center / contain;
-		width: 30px;
-		height: 30px;
-		transition-duration: 0.1s;
 	}
 </style>

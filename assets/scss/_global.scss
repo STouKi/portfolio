@@ -1,7 +1,31 @@
-html, body, #__nuxt, #__layout {
-  height: 100%;
-}
-
 .amatic {
   font-family: 'Amatic';
+}
+
+h2 {
+	font-weight: bold;
+}
+
+
+// Color
+
+.bg-primary {
+	background-color: $primary;
+}
+
+.primary {
+	color: $primary;
+}
+
+
+// Srollbar
+
+::-webkit-scrollbar {
+	width: .60rem;
+	background-color: $shade-2;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: $tint-2;
+	border-radius: .5rem;
 }

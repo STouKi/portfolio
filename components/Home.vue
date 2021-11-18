@@ -1,12 +1,12 @@
 <template>
-  <section id="home" class="flex flex-col justify-center items-center h-screen">
-    <img src='~/assets/images/logos/quentin-sastourne/quentin-sastourne.svg' alt="Quentin Sastourné : Dev web - Graphiste" class="w-3/5 lg:w-2/5" />
+  <section id="home" class="flex flex-col justify-center items-center min-h-screen">
+    <img data-src="~/assets/images/logos/quentin-sastourne/quentin-sastourne.svg" alt="Quentin Sastourné : Dev web - Graphiste" class="w-3/5 lg:w-2/5 lazyload" />
 
-    <img src="~/assets/images/shape-divider.png" alt="Divider" class="absolute bottom-0" />
+    <img data-src="~/assets/images/shape-divider.png" alt="Divider" class="absolute bottom-0 left-auto lazyload" />
 
     <a @click="scrollToPortfolio" class="cursor-pointer flex flex-col items-center text-white absolute bottom-0 pb-1 md:pb-5 xl:pb-10">
-      <h2 class="mb-1 md:mb-5 xl:mb-10 text-5xl"> Portfolio </h2>
-      <img src='~/assets/images/icons/arrow-down.svg' alt="Flèche vers le bas" width="30" />
+      <h2 class="mb-1 md:mb-5 xl:mb-10 sm:text-5xl text-2xl"> Portfolio </h2>
+			<div class="svg-angle-down bg-white w-10 h-10" />
     </a>
   </section>
 </template>
@@ -48,11 +48,6 @@ export default {
       &:hover
       {
         padding: 50px 30px 10px 30px;
-
-        h2
-        {
-          opacity: 0;
-        }
       }
     }
   }

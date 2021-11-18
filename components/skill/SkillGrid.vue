@@ -1,6 +1,9 @@
 <template>
-  <section id='skills' class="anchor p-4 md:p-10">
-    <h2 class="text-center amatic text-5xl mb-4 md:mb-10">Compétences</h2>
+  <section id='skills' class="anchor p-4 md:p-10 dark:bg-shade-2">
+		<div class="title-section">
+			<h2>Compétences</h2>
+			<h3>Mon niveau technologique</h3>
+		</div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-10">
         <SkillTechnoFamily
@@ -17,6 +20,7 @@ export default {
       technoFamilies: [
         {
           name: "FrontEnd",
+					icon: 'svg-brackets',
           technos: [
             {
               name: "HTML",
@@ -42,6 +46,7 @@ export default {
         },
         {
           name: "BackEnd",
+					icon: 'svg-backend',
           technos: [
             {
               name: "Node.js",
@@ -67,6 +72,7 @@ export default {
         },
         {
           name: "CMS",
+					icon: 'svg-cms',
           technos: [
             {
               name: "WordPress",
@@ -77,6 +83,7 @@ export default {
         },
         {
           name: "Autre",
+					icon: 'svg-expand',
           technos: [
             {
               name: "JSON",
@@ -92,6 +99,7 @@ export default {
         },
         {
           name: "Graphisme",
+					icon: 'svg-color-palette',
           technos: [
             {
               name: "Adobe Illustrator",
@@ -112,6 +120,7 @@ export default {
         },
         {
           name: "Vidéo",
+					icon: 'svg-video',
           technos: [
             {
               name: "Adobe Premiere Pro",
@@ -127,6 +136,7 @@ export default {
         },
         {
           name: "MAO",
+					icon: 'svg-music',
           technos: [
             {
               name: "Ableton Live",

@@ -2,9 +2,9 @@
   <div>
     <Home />
     <LazyPortfolioGrid />
-    <LazyExperienceGrid />
+    <LazyServiceGrid />
+		<LazySkillGrid />
 		<LazyQualificationGrid />
-    <LazySkillGrid />
     <LazyTestimonialGrid />
     <LazyAbout />
     <LazyContact />

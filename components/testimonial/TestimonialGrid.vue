@@ -1,6 +1,9 @@
 <template>
-  <section id="testimonials" class="anchor p-4 md:p-10 bg-gray-200">
-    <h2 class="text-center amatic text-5xl mb-4 md:mb-10">Recommandations</h2>
+  <section id="testimonials" class="anchor p-4 md:p-10 bg-gray-200 dark:bg-shade-2">
+    <div class="title-section">
+			<h2>Témoignages</h2>
+			<h3>Ce que disent mes clients</h3>
+		</div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-10">
       <TestimonialDetail
@@ -11,13 +14,7 @@
 </template>
 
 <script>
-//import { Splide, SplideSlide } from '@splidejs/vue-splide';
-
 export default {
-  /* components: {
-    Splide,
-    SplideSlide,
-  }, */
   data() {
     return {
       testimonials: [
@@ -27,7 +24,9 @@ export default {
             Quentin a fait preuve d'efficacité et d'écoute et a su s'adapter à nos besoins au fil du projet.
 						<br />
 						Celui-ci a été livré dans les temps et le résultat a été très satisfaisant.
-          `
+          `,
+					gender: 'male',
+					src: 'adrien-devillers'
         },
         {
           title: 'M. TOUYA',
@@ -35,7 +34,9 @@ export default {
             Rapide et pro.
             <br />
             Merci.
-          `
+          `,
+					gender: 'male',
+					src: 'touya'
         },
         {
           title: 'Laurent Touati',
@@ -44,14 +45,16 @@ export default {
             <br />
             Exécute les tâches demandées.
             <br />
-            Le site qu'il nous a livré, répond clairement aux attentes de l'entreprise, qui fait essentiellement de la vente à emporter.
+            Le site qu'il nous a livré répond clairement aux attentes de l'entreprise qui fait essentiellement de la vente à emporter.
             <br />
-            La présentation est parfaite et encore mieux de ce que l'on imaginait.
+            La présentation est parfaite et encore mieux que ce que l'on imaginait.
             <br />
             Il réussit à faire un site qui s'intègre parfaitement au thème et à la culture de la société.
             <br />
             Le prix de la livraison est très attractif.
-          `
+          `,
+					gender: 'male',
+					src: 'laurent-touati'
         }
       ]
     }

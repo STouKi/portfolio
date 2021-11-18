@@ -1,6 +1,6 @@
 <template>
   <div :style="{ background: `${project.background.color}` }" class="portfolio-elements rounded h-80">
-    <img :src="require(`~/assets/images/logos/${project.img}`)" :alt="'Logo de ' + project.name" class="w-3/6" />
+    <img :data-src="require(`~/assets/images/logos/${project.img}`)" :alt="'Logo de ' + project.name" class="w-3/6 lazyload" />
 
     <a :href="project.href" target="blank">
       <div class="card ">
@@ -59,8 +59,8 @@ export default {
     right: 0;
     opacity: 0;
     background-color: $shade-2;
-    transition-duration: 0.2s;
-    border-radius: 0;
+		border-radius: 0;
+    @apply transition;
 
     button {
       display: flex;
@@ -72,7 +72,7 @@ export default {
       width: 50px;
       height: 50px;
       margin-right: 30px;
-      transition-duration: 0.2s;
+      @apply transition;
 
 			div {
 				background-color: white;

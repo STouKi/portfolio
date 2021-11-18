@@ -2,12 +2,12 @@
 	<div class="qualification-data">
 		<div v-if="index % 2 != 0" />
 		<div v-if="index % 2 != 0">
-			<span class="qualification-rounder" />
-			<span v-if="index < qualificationsLength - 1" class="qualification-line" />
+			<span class="qualification-rounder dark:bg-tint-2" />
+			<span v-if="index < qualificationsLength - 1" class="qualification-line dark:bg-tint-2" />
 		</div>
 
 		<div class="flex flex-col" :class="flexEnd">
-			<span>{{ qualification.name }}</span>
+			<span class="dark:text-tint-2">{{ qualification.name }}</span>
 			<span class="text-sm text-gray-700">{{ qualification.location }}</span>
 
 			<div class="flex">
@@ -17,8 +17,8 @@
 		</div>
 
 		<div v-if="index % 2 == 0">
-			<span class="qualification-rounder" />
-			<span v-if="index < qualificationsLength - 1" class="qualification-line" />
+			<span class="qualification-rounder dark:bg-tint-2" />
+			<span v-if="index < qualificationsLength - 1" class="qualification-line dark:bg-tint-2" />
 		</div>
 		<div v-if="index % 2 == 0" />
 	</div>
@@ -69,7 +69,7 @@
 		display: inline-block;
 		width: 13px;
 		height: 13px;
-		background-color: black;
+		background-color: $primary;
 		border-radius: 50%;
 	}
 
@@ -77,7 +77,7 @@
 		display: block;
 		width: 1px;
 		height: 100%;
-		background-color: black;
+		background-color: $primary;
 		transform: translate(6px, -7px);
 	}
 </style>

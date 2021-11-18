@@ -1,12 +1,15 @@
 <template>
   <section id='about' class="anchors">
-    <h2 class="text-center amatic text-5xl pt-4 md:pt-10">A propos</h2>
+		<div class="text-center">
+			<h2 class="amatic text-5xl pt-4 md:pt-10 mb-3">A propos</h2>
+			<h3 class="text-xl text-gray-500"> Ma présentation</h3>
+		</div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2">
-      <div id="bubble" class="rounded-lg p-4 m-4 md:p-10 md:m-10">
-        <div class="mb-10">
+      <div id="bubble" class="bg-white z-10 relative rounded-lg p-4 m-4 md:p-10 md:m-10">
+        <div class="flex justify-between items-center mb-10">
           <h3 class="text-3xl">Salut ! 👋</h3>
-          <img src="~/assets/images/pictures/quentin-sastourne.png" alt="Photo de Quentin Sastourné" width="100px" class="rounded-full block lg:hidden">
+          <img data-src="~/assets/images/pictures/quentin-sastourne.png" alt="Photo de Quentin Sastourné" width="100px" height="auto" class="rounded-full block lg:hidden lazyload">
         </div>
 
         <p>
@@ -20,10 +23,19 @@
 					<br /> <br />
 					A bientôt ! 😉
         </p>
+
+				<div class="flex justify-end">
+					<a download="" href="~/assets/images/cv.pdf">
+						<button class="btn-main p-3 rounded text-xl flex justify-between">
+							CV
+							<div id="download-svg" class="btn-main-icon ml-3" />
+						</button>
+					</a>
+				</div>
       </div>
 
       <div class="hidden lg:block relative">
-        <img src="~/assets/images/pictures/quentin-sastourne.png" alt="Photo de Quentin Sastourné" class="absolute bottom-0 right-20">
+        <img data-src="~/assets/images/pictures/quentin-sastourne.png" alt="Photo de Quentin Sastourné" class="absolute bottom-0 right-20 lazyload">
       </div>
     </div>
   </section>
@@ -33,20 +45,6 @@
   #about
   {
     background: #d6d8d3;
-  }
-
-  #bubble
-  {
-    background-color: white;
-    z-index: 9;
-    position: relative;
-
-    div
-    {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
   }
 
   @media (min-width: 1024px)
@@ -60,4 +58,9 @@
       right: -200px;
     }
   }
+
+	#download-svg {
+		mask: url('@/assets/images/icons/download.svg') no-repeat center / contain;
+		-webkit-mask: url('@/assets/images/icons/download.svg') no-repeat center / contain;
+	}
 </style>

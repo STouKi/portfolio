@@ -3,7 +3,8 @@ export default {
   head: {
     title: 'Quentin Sastourné - Porfolio',
     htmlAttrs: {
-      lang: 'fr'
+      lang: 'fr',
+			class: 'dark'
     },
     meta: [
       { charset: 'utf-8' },
@@ -25,35 +26,11 @@ export default {
 		scss: ['@/assets/scss/_variables.scss']
 	},
 
-  components: {
-    dirs: [
-      '~/components',
-      /* {
-        path: '~/components/experience/',
-        prefix: 'Experience'
-      },
-      {
-        path: '~/components/portfolio/',
-        prefix: 'Portfolio'
-      },
-      {
-        path: '~/components/skill/',
-        prefix: 'Skill'
-      },
-      {
-        path: '~/components/form/',
-        prefix: 'Form'
-      },
-      {
-        path: '~/components/testimonial/',
-        prefix: 'Testimonial'
-      } */
-    ]
-  },
-
   buildModules: [
     '@nuxtjs/tailwindcss',
-		'@nuxtjs/style-resources'
+		'@nuxtjs/style-resources',
+		'@nuxt/components',
+		'nuxt-lazysizes'
   ],
 
   modules: [
@@ -83,5 +60,17 @@ export default {
         pass: "Upru3O#R39MK"
       }
     }
-  }
+  },
+
+	lazySizes: {
+		extendAssetUrls: {
+			img: ['src', 'srcset', 'data-src', 'data-srcset'],
+			source: ['src', 'srcset', 'data-src', 'data-srcset'],
+
+			// Example for a custom component
+			AppImage: ['source-md-url', 'image-url'],
+		},
+	},
+
+	components: true
 }

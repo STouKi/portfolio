@@ -1,15 +1,14 @@
 <template>
-  <label class="block mb-5">
-    <span class="text-gray-700">{{ label }}</span>
+  <label>
+    <span>{{ label }}</span>
 
     <input
     :type="type"
     :class="styleClass"
-    @input="$emit('input', $event.target.value)"
-    class="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-50">
+    @input="$emit('input', $event.target.value)">
 
-    <p v-if="showRequiredError" class="text-red-500 text-xs">{{ nameInError }} est obligatoire</p>
-    <p v-if="showEmailError" class="text-red-500 text-xs">{{ nameInError }} doit être au format xxxxx@xxx.xx</p>
+    <p v-if="showRequiredError" class="input-message">{{ nameInError }} est obligatoire</p>
+    <p v-if="showEmailError" class="input-message">{{ nameInError }} doit être au format xxxxx@xxx.xx</p>
   </label>
 </template>
 

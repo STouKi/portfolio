@@ -1,14 +1,14 @@
 <template>
-  <section id="portfolio" class="anchor bg-black p-4 md:p-10">
-		<div class="flex justify-center mb-5">
-      <div class="flex mr-5 portfolio-tab" @click="activateTab('webDev')" :class="{ active: activeTab === 'webDev' }">
-        <div id="brackets-svg" class="mr-3" />
-        <span class="amatic text-4xl">Développement web</span>
+  <section id="portfolio" class="anchor bg-shade-2 p-4 md:p-10">
+		<div class="tab-container">
+      <div class="tab" @click="activateTab('webDev')" :class="{ 'tab-active': activeTab === 'webDev' }">
+        <div class="svg-brackets" />
+        <span>Développement web</span>
       </div>
 
-      <div class="flex portfolio-tab" @click="activateTab('graphism')" :class="{ active: activeTab === 'graphism' }">
-        <div id="color-palette-svg" class="mr-3"  />
-        <span class="amatic text-4xl">Graphisme</span>
+      <div class="tab" @click="activateTab('graphism')" :class="{ 'tab-active': activeTab === 'graphism' }">
+        <div class="svg-color-palette" />
+        <span>Graphisme</span>
       </div>
 		</div>
 
@@ -17,15 +17,13 @@
 			v-show="activeTab === 'webDev'"
 			v-for="(project, index) in projects.webDev" :key="index"
 			:project="project"
-			:type="'webDev'"
-			/>
+			:type="'webDev'" />
 
 			<PortfolioProject
 			v-show="activeTab === 'graphism'"
 			v-for="(project, index) in projects.graphism" :key="index"
 			:project="project"
-			:type="'graphism'"
-			/>
+			:type="'graphism'" />
     </div>
   </section>
 </template>
@@ -214,44 +212,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-	#color-palette-svg {
-		mask: url('@/assets/images/icons/color-palette.svg') no-repeat center / contain;
-		-webkit-mask: url('@/assets/images/icons/color-palette.svg') no-repeat center / contain;
-	}
-
-	#brackets-svg {
-		mask: url('@/assets/images/icons/brackets.svg') no-repeat center / contain;
-		-webkit-mask: url('@/assets/images/icons/brackets.svg') no-repeat center / contain;
-	}
-
-  .portfolio-tab {
-    cursor: pointer;
-
-		div, span {
-			transition-duration: 0.1s;
-		}
-
-		div {
-			background-color: gray;
-			width: 40px;
-			height: 40px;
-		}
-
-    span {
-      color: gray;
-    }
-
-    &:hover {
-			div {
-				background-color: white;
-			}
-      span {
-        color: white;
-      }
-    }
-  }
-
-  .active {
+	.tab:hover, .tab-active {
 		div {
 			background-color: white;
 		}
@@ -259,5 +220,5 @@ export default {
 		span {
 			color: white;
 		}
-  }
+	}
 </style>

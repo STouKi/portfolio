@@ -1,14 +1,13 @@
 <template>
-  <label class="block mb-5">
-    <span class="text-gray-700">{{ label }}</span>
+  <label>
+    <span>{{ label }}</span>
 
     <textarea
     :class="styleClass"
     @input="$emit('input', $event.target.value)"
-    class="block w-full rounded-md shadow-sm focus:ring focus:ring-opacity-50"
     rows="3" />
 
-    <p v-if="showRequiredError" class="text-red-500 text-xs">Le message est obligatoire</p>
+    <p v-if="showRequiredError" class="input-message">Le message est obligatoire</p>
   </label>
 </template>
 
