@@ -36,15 +36,6 @@ export default {
       projects: {
         webDev: [
 					{
-						name: 'Réassurez-moi',
-						background: {
-							color: 'rgba(255, 255, 255, 1)',
-              image: 'reassurez-moi'
-						},
-						img: 'reassurez-moi-logo.png',
-						href: 'https://reassurez-moi.fr/guide'
-					},
-					{
 						name: 'Allegro Amabile',
 						background: {
 							color: 'rgba(255, 255, 255, 1)',
