@@ -30,7 +30,8 @@ export default {
     '@nuxtjs/tailwindcss',
 		'@nuxtjs/style-resources',
 		'@nuxt/components',
-		'nuxt-lazysizes'
+		'nuxt-lazysizes',
+		'@nuxtjs/google-analytics'
   ],
 
   modules: [
@@ -70,6 +71,10 @@ export default {
 			// Example for a custom component
 			AppImage: ['source-md-url', 'image-url'],
 		},
+	},
+
+	googleAnalytics: {
+		id: 'UA-169037338-3'
 	},
 
 	components: true
