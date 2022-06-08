@@ -21,6 +21,9 @@ module.exports = {
 				'tint-2': 'var(--tint-2)',
 			}
 		},
+		container: {
+			center: true
+		}
   },
   variants: {
     extend: {

@@ -1,5 +1,5 @@
 <template>
-  <section id='contact' class="anchor p-4 md:p-10 grid grid-cols-1 md:grid-cols-2 dark:bg-shade-2">
+  <section id='contact' class="container anchor p-4 grid grid-cols-1 md:grid-cols-2">
     <div class="mb-10 md:mb-0">
       <h2 class="amatic text-5xl mb-4 md:mb-10 dark:text-tint-2"> Contactez-moi </h2>
 

@@ -1,5 +1,5 @@
 <template>
-  <section id="testimonials" class="anchor p-4 md:p-10 bg-gray-200 dark:bg-shade-2">
+  <section id="testimonials" class="container anchor p-4">
     <div class="title-section">
 			<h2>Témoignages</h2>
 			<h3>Ce que disent mes clients</h3>

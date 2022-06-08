@@ -1,5 +1,5 @@
 <template>
-  <section id='skills' class="anchor p-4 md:p-10 dark:bg-shade-2">
+  <section id='skills' class="container anchor p-4">
 		<div class="title-section">
 			<h2>Compétences</h2>
 			<h3>Mon niveau technologique</h3>

@@ -1,5 +1,5 @@
 <template>
-  <section id="services" class="anchor p-4 md:p-10 bg-gray-400 dark:bg-shade-2">
+  <section id="services" class="container anchor p-4">
     <div class="title-section">
 			<h2>Services</h2>
 			<h3>Ce que je propose</h3>

@@ -1,6 +1,6 @@
 <template>
   <section id="home" class="flex flex-col justify-center items-center min-h-screen">
-    <img data-src="~/assets/images/logos/quentin-sastourne/quentin-sastourne.svg" alt="Quentin Sastourné : Dev web - Graphiste" class="w-3/5 lg:w-2/5 lazyload" />
+    <img data-src="~/assets/images/logos/quentin-sastourne/quentin-sastourne.svg" alt="Quentin Sastourné : Dev web - Graphiste" class="w-3/5 lg:w-2/6 lazyload" />
 
     <img data-src="~/assets/images/shape-divider.png" alt="Divider" class="absolute bottom-0 left-auto lazyload" />
 

@@ -1,6 +1,7 @@
 <template>
-  <header class="px-4 md:px-10 py-5 w-full z-20" :class="{ fixed : headerFixed }" :style="{ background : headerBackground }">
-    <div class="flex justify-between items-center">
+  <header class="w-full z-20" :class="{ fixed : headerFixed }" :style="{ background : headerBackground }">
+    <div class="container p-4">
+			<div class="flex justify-between items-center">
       <div id="logo-container">
         <a class="anchor-links cursor-pointer flex" href="#home" @click.prevent="activeLink('home', $event)">
           <img data-src="~/assets/images/icons/qs.svg" alt="Logo de Quentin Sastourné" class="h-10 lg:h-20 lazyload" />
@@ -35,6 +36,7 @@
         </div>
       </div>
     </div>
+		</div>
   </header>
 </template>
 

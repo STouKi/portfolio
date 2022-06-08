@@ -1,18 +1,18 @@
 <template>
-  <section id="portfolio" class="anchor bg-shade-2 p-4 md:p-10">
+  <section id="portfolio" class="container anchor p-4">
 		<div class="tab-container">
-      <div class="tab" @click="activateTab('webDev')" :class="{ 'tab-active': activeTab === 'webDev' }">
-        <div class="svg-brackets" />
-        <span>Développement web</span>
-      </div>
+			<div class="tab" @click="activateTab('webDev')" :class="{ 'tab-active': activeTab === 'webDev' }">
+				<div class="svg-brackets" />
+				<span>Développement web</span>
+			</div>
 
-      <div class="tab" @click="activateTab('graphism')" :class="{ 'tab-active': activeTab === 'graphism' }">
-        <div class="svg-color-palette" />
-        <span>Graphisme</span>
-      </div>
+			<div class="tab" @click="activateTab('graphism')" :class="{ 'tab-active': activeTab === 'graphism' }">
+				<div class="svg-color-palette" />
+				<span>Graphisme</span>
+			</div>
 		</div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-10">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-10">
 			<PortfolioProject
 			v-show="activeTab === 'webDev'"
 			v-for="(project, index) in projects.webDev" :key="index"
@@ -24,7 +24,7 @@
 			v-for="(project, index) in projects.graphism" :key="index"
 			:project="project"
 			:type="'graphism'" />
-    </div>
+		</div>
   </section>
 </template>
 
@@ -35,6 +35,15 @@ export default {
 			activeTab: 'webDev',
       projects: {
         webDev: [
+					{
+						name: 'Skeell',
+						background: {
+							color: 'rgba(2, 84, 247, 1)',
+							image: 'skeell'
+						},
+						img: 'skeell.svg',
+						href: 'https://skeell.fr'
+					},
 					{
 						name: 'Allegro Amabile',
 						background: {
