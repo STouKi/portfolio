@@ -58,6 +58,11 @@
 					],
 					work: [
 						{
+							name: 'Développeur Nuxt.js / Node.js',
+							location: 'Skeell',
+							duration: '01-06/2022'
+						},
+						{
 							name: 'Développeur WordPress',
 							location: 'Réassurez-moi, Paris',
 							duration: '07-08/2021'
