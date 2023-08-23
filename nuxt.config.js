@@ -12,6 +12,7 @@ export default {
       { name: 'author', content: 'Quentin Sastourné'},
       { name: 'copyright', content: 'Quentin Sastourné'},
       { name: 'description', content: 'Portfolio de Quentin Sastourné, développeur web et graphiste' },
+			{ name: 'google-site-verification', content: '0_oCRG8aMUyuL3nJmSm0mRGtK-WJj6wiQLaGPMGd8EI'}
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
